@@ -7,6 +7,8 @@ class HandTest {
 
     @Test
     fun canWinTo() {
-        Assert.assertTrue(Hand.PAPER.canWinTo(Hand.PAPER))
+        Assert.assertTrue(Hand.PAPER.canWinTo(Hand.ROCK))
+        Assert.assertTrue(Hand.ROCK.canWinTo(Hand.SCISSOR))
+        Assert.assertTrue(Hand.SCISSOR.canWinTo(Hand.PAPER))
     }
 }
