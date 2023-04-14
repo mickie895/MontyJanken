@@ -24,28 +24,28 @@ constructor(
             return GameState(
                 playerStartHand,
                 opponentHand,
-                showNotUseHand(playerStartHand, opponentHand)
+                getCanShowHands(playerStartHand, opponentHand).random()
             )
         }
 
         /**
-         * プレイヤーに見せる揺さぶり用の手を提示する
-         */
-        private fun showNotUseHand(playerStartHand: Hand, opponentHand: Hand) =
-            Hand.values().filter {
-                handSetIsValidate(playerStartHand, opponentHand, it)
-            }.random()
-
-        /**
          * 手の組み合わせが成り立っているかどうかのチェック
          */
-        @VisibleForTesting
-        fun handSetIsValidate(
+        private fun handSetIsValidate(
             playerStartHand: Hand,
             opponentHand: Hand,
             opponentNotUseHand: Hand
         ): Boolean =
             opponentNotUseHand != opponentHand && (!playerStartHand.canWinTo(opponentNotUseHand))
+
+        /**
+         * 対戦相手が提示できる手の一覧を返す
+         */
+        @VisibleForTesting
+        fun getCanShowHands(playerStartHand: Hand, opponentHand: Hand): List<Hand> =
+            Hand.values().filter {
+                handSetIsValidate(playerStartHand, opponentHand, it)
+            }
     }
 
     @VisibleForTesting
