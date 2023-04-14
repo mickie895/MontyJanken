@@ -39,7 +39,8 @@ constructor(
         /**
          * 手の組み合わせが成り立っているかどうかのチェック
          */
-        private fun handSetIsValidate(
+        @VisibleForTesting
+        fun handSetIsValidate(
             playerStartHand: Hand,
             opponentHand: Hand,
             opponentNotUseHand: Hand
@@ -48,6 +49,17 @@ constructor(
     }
 
     @VisibleForTesting
-    fun canUseForGame(): Boolean
-        = handSetIsValidate(playerStartHand, opponentHand, opponentNotUseHand)
+    fun canUseForGame(): Boolean =
+        handSetIsValidate(playerStartHand, opponentHand, opponentNotUseHand)
+
+    /**
+     * 二度目に選択できる手の提示
+     * (じゃんけんのため、手は2つであることが保証できる)
+     */
+    val selectableHands: List<Hand> = Hand.values().filterNot { it.canWinTo(opponentNotUseHand) }
+
+    /**
+     * 最終的な手の確定及び勝負の結果の取得
+     */
+    fun matchWith(finalPlayerHand: Hand): Boolean = finalPlayerHand.canWinTo(opponentHand)
 }
