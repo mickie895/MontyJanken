@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MontyJanken</string>
+    <string name="app_title">モンティ・ホール・じゃんけん</string>
+    <string name="start_main_mode">開始</string>
+</resources>
