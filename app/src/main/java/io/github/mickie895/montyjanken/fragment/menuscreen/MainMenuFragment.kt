@@ -21,19 +21,15 @@ class MainMenuFragment : Fragment() {
 
     private val viewModel: MainMenuViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = FragmentMainMenuBinding.inflate(layoutInflater)
-        binding.startMainButton.setOnClickListener{
-            findNavController().navigate(R.id.action_mainMenuFragment_to_firstHandSelectFragment)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_main_menu, container, false)
+        val binding = FragmentMainMenuBinding.inflate(layoutInflater)
+        binding.startMainButton.setOnClickListener{
+            findNavController().navigate(R.id.action_mainMenuFragment_to_firstHandSelectFragment)
+        }
+        return binding.root
     }
 
 }

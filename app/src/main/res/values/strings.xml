@@ -2,4 +2,8 @@
     <string name="app_name">MontyJanken</string>
     <string name="app_title">Janken in Monty holl</string>
     <string name="start_main_mode">Start</string>
+    <string name="select_rock">Select Rock hand</string>
+    <string name="select_scissor">Select Scissor hand</string>
+    <string name="select_paper">Select Paper hand</string>
+    <string name="select_first_hand">Select your starting hand</string>
 </resources>

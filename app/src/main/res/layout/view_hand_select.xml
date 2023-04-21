@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/select_rock"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:contentDescription="@string/select_rock"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/janken_gu" />
+
+    <ImageButton
+        android:id="@+id/select_scissor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:contentDescription="@string/select_scissor"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/janken_choki" />
+
+    <ImageButton
+        android:id="@+id/select_paper"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:contentDescription="@string/select_paper"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/janken_pa" />
+</LinearLayout>
