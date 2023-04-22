@@ -7,4 +7,9 @@
     <string name="select_scissor">チョキを選択</string>
     <string name="select_paper">パーを選択</string>
     <string name="select_first_hand">最初の手を選んでください</string>
+    <string name="check_selected">あなたの選んだ手は%1$sですね。</string>
+    <string name="show_not_used_hand">では、私は%1$sを使わないと宣言します。\nどちらの手を選択しますか？</string>
+    <string name="hand_rock">グー</string>
+    <string name="hand_scissor">チョキ</string>
+    <string name="hand_paper">パー</string>
 </resources>

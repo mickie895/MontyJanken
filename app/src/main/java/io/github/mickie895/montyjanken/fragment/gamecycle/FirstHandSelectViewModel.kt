@@ -22,6 +22,6 @@ class FirstHandSelectViewModel @Inject constructor(private val gameCycleReposito
     }
 
     fun gotoNextState(playerHand: Hand) {
-        gameCycle.proceed(playerHand)
+        gameCycleRepository.proceed(playerHand)
     }
 }

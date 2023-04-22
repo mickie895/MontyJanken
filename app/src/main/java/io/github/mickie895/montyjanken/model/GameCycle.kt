@@ -9,7 +9,7 @@ sealed interface GameCycle{
     /**
      * プレイヤーが手を決めて先に進む
      */
-    fun proceed(hand: Hand): GameCycle
+    fun getNextInstanceWith(hand: Hand): GameCycle
 
     /**
      * 初期状態へリセットする
@@ -20,7 +20,7 @@ sealed interface GameCycle{
      * 開始時の何も情報を作成していない状態
      */
     object Start : GameCycle {
-        override fun proceed(hand: Hand): GameCycle {
+        override fun getNextInstanceWith(hand: Hand): GameCycle {
             return HandSelected(hand)
         }
     }
@@ -31,7 +31,7 @@ sealed interface GameCycle{
     class HandSelected(selectedHand: Hand): GameCycle{
         val gameState = GameState.startWithHand(selectedHand)
 
-        override fun proceed(hand: Hand): GameCycle {
+        override fun getNextInstanceWith(hand: Hand): GameCycle {
             return GameResult(this, hand)
         }
     }
@@ -44,7 +44,7 @@ sealed interface GameCycle{
         val handHasChanged = gameState.playerStartHand != finalSelectedHand
         val hasWon = gameState.matchWith(finalSelectedHand)
 
-        override fun proceed(hand: Hand): GameCycle {
+        override fun getNextInstanceWith(hand: Hand): GameCycle {
             // 絶対通らない処理。
             throw IllegalStateException("ゲーム遷移上間違った操作が行われています")
         }

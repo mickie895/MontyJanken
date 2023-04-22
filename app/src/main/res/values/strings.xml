@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">MontyJanken</string>
-    <string name="app_title">Janken in Monty holl</string>
+    <string name="app_title">Janken in Monty hole</string>
     <string name="start_main_mode">Start</string>
     <string name="select_rock">Select Rock hand</string>
     <string name="select_scissor">Select Scissor hand</string>
     <string name="select_paper">Select Paper hand</string>
     <string name="select_first_hand">Select your starting hand</string>
+    <string name="check_selected">Your first selected hand is %1$s.</string>
+    <string name="show_not_used_hand">I will NOT use %1$s.\nWhich hand you select?</string>
+    <string name="hand_rock">Rock</string>
+    <string name="hand_scissor">Scissor</string>
+    <string name="hand_paper">Paper</string>
 </resources>
