@@ -6,11 +6,11 @@ package io.github.mickie895.montyjanken.model
 class GameCycleRepository {
     var gameCycle: GameCycle = GameCycle.Start
 
-    fun proceed(hand: Hand){
+    fun proceed(hand: Hand) {
         gameCycle = gameCycle.getNextInstanceWith(hand)
     }
 
-    fun reset(){
+    fun reset() {
         gameCycle = gameCycle.reset()
     }
 }

@@ -5,7 +5,7 @@ import io.github.mickie895.montyjanken.model.statics.GameSummary
 /**
  * ゲームの遷移をシールクラスで表現する
  */
-sealed interface GameCycle{
+sealed interface GameCycle {
     /**
      * プレイヤーが手を決めて先に進む
      */
@@ -28,7 +28,7 @@ sealed interface GameCycle{
     /**
      * プレイヤーが最初に手を選択した状態
      */
-    class HandSelected(selectedHand: Hand): GameCycle{
+    class HandSelected(selectedHand: Hand) : GameCycle {
         val gameState = GameState.startWithHand(selectedHand)
 
         override fun getNextInstanceWith(hand: Hand): GameCycle {
@@ -39,7 +39,7 @@ sealed interface GameCycle{
     /**
      * 二度目に手を選択して勝負が終わった状態
      */
-    class GameResult(game: HandSelected, val finalSelectedHand: Hand): GameCycle{
+    class GameResult(game: HandSelected, private val finalSelectedHand: Hand) : GameCycle {
         val gameState = game.gameState
         val handHasChanged = gameState.playerStartHand != finalSelectedHand
         val hasWon = gameState.matchWith(finalSelectedHand)
@@ -49,7 +49,7 @@ sealed interface GameCycle{
             throw IllegalStateException("ゲーム遷移上間違った操作が行われています")
         }
 
-        fun summary(): GameSummary
-        = GameSummary(gameState.playerStartHand, gameState.opponentHand, finalSelectedHand)
+        fun summary(): GameSummary =
+            GameSummary(gameState.playerStartHand, gameState.opponentHand, finalSelectedHand)
     }
 }

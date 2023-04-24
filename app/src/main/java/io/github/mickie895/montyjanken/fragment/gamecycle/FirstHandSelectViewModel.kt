@@ -11,7 +11,7 @@ import javax.inject.Inject
 class FirstHandSelectViewModel @Inject constructor(private val gameCycleRepository: GameCycleRepository) :
     ViewModel() {
 
-    private val gameCycle: GameCycle
+    private val gameCycle
         get() = gameCycleRepository.gameCycle
 
     init {

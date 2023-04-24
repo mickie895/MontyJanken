@@ -7,13 +7,13 @@ import io.github.mickie895.montyjanken.model.GameCycleRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class ResultShowViewModel @Inject constructor(val gameCycleRepository: GameCycleRepository) :
+class ResultShowViewModel @Inject constructor(private val gameCycleRepository: GameCycleRepository) :
     ViewModel() {
     fun resetGame() {
         gameCycleRepository.reset()
     }
 
-    val gameCycle: GameCycle.GameResult
+    private val gameCycle: GameCycle.GameResult
         get() {
             when (val capturedCycle = gameCycleRepository.gameCycle) {
                 is GameCycle.GameResult -> {
@@ -30,5 +30,4 @@ class ResultShowViewModel @Inject constructor(val gameCycleRepository: GameCycle
     val changed = gameCycle.handHasChanged
 
     val opponentHand = gameCycle.gameState.opponentHand
-
 }

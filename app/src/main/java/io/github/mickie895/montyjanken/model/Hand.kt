@@ -3,7 +3,8 @@ package io.github.mickie895.montyjanken.model
 enum class Hand {
     ROCK,
     SCISSOR,
-    PAPER;
+    PAPER,
+    ;
 
     fun canWinTo(opponent: Hand): Boolean {
         return when (this) {

@@ -7,7 +7,7 @@ import io.github.mickie895.montyjanken.model.Hand
  */
 data class GameHistory(
     val gameCount: Int,
-    val winCount: Int
+    val winCount: Int,
 )
 
 /**
@@ -18,7 +18,7 @@ data class GameSummary constructor(
     val opponentHand: Hand,
     val lastPlayerHand: Hand,
     val handsChanged: Boolean,
-    val hasWon: Boolean
+    val hasWon: Boolean,
 ) {
 
     constructor(
@@ -30,6 +30,6 @@ data class GameSummary constructor(
         opponentHand,
         lastPlayerHand,
         firstPlayerHand != lastPlayerHand,
-        lastPlayerHand.canWinTo(opponentHand)
+        lastPlayerHand.canWinTo(opponentHand),
     )
 }

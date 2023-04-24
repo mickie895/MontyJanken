@@ -21,11 +21,11 @@ class ShowOpponentHandViewModel @Inject constructor(private val gameCycleReposit
 
     val opponentNotUseHand get() = gameState.opponentNotUseHand
 
-    val playerCantUseHand get() = Hand.values().first{
+    val playerCantUseHand get() = Hand.values().first {
         it.canWinTo(opponentNotUseHand)
     }
 
-    fun proceed(hand: Hand){
+    fun proceed(hand: Hand) {
         gameCycleRepository.proceed(hand)
     }
 }

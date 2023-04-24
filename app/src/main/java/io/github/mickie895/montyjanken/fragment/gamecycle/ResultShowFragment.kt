@@ -1,10 +1,10 @@
 package io.github.mickie895.montyjanken.fragment.gamecycle
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +22,7 @@ class ResultShowFragment : Fragment() {
                 when (viewModel.changed) {
                     true -> R.string.summary_change
                     false -> R.string.summary_nochange
-                }
+                },
             )
         }
 
@@ -32,27 +32,28 @@ class ResultShowFragment : Fragment() {
                 when (viewModel.hasWon) {
                     true -> R.string.summary_win
                     false -> R.string.summary_lose
-                }
+                },
             )
         }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         val binding = FragmentResultShowBinding.inflate(inflater)
         binding.resultText.text = getString(
             when (viewModel.hasWon) {
                 true -> R.string.result_win
                 false -> R.string.result_lose
-            }
+            },
         )
         binding.summaryText.text = getString(
             R.string.game_summary,
             handToString(viewModel.firstHand),
             changedString,
             summaryResultString,
-            handToString(viewModel.opponentHand)
+            handToString(viewModel.opponentHand),
         )
         binding.nextGame.setOnClickListener {
             viewModel.resetGame()

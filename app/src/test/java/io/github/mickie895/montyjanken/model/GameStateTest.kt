@@ -13,7 +13,7 @@ class GameStateTest {
                 val game = GameState.startWithHand(player)
                 Assert.assertTrue(
                     "ゲームが正常に初期化されることの確認",
-                    game.canUseForGame()
+                    game.canUseForGame(),
                 )
             }
         }
@@ -60,9 +60,11 @@ class GameStateTest {
         }
         // 手を変えたときの勝率
         val changedWinCount = allGames.count { game ->
-            game.matchWith(game.selectableHands.first {
-                it != game.playerStartHand
-            })
+            game.matchWith(
+                game.selectableHands.first {
+                    it != game.playerStartHand
+                },
+            )
         }
 
         Assert.assertTrue("手を変えたほうが勝率が上がる", notChangedWinCount < changedWinCount)

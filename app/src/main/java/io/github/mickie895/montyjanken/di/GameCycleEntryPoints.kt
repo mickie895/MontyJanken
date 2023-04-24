@@ -15,7 +15,7 @@ class GameCycleEntryPoints {
 
     @Provides
     @Singleton
-    fun provideGameCycleRepository() : GameCycleRepository{
+    fun provideGameCycleRepository(): GameCycleRepository {
         return GameCycleRepository()
     }
 }

@@ -13,7 +13,7 @@ constructor(
     /**
      * 揺さぶりとして提示される手
      */
-    val opponentNotUseHand: Hand
+    val opponentNotUseHand: Hand,
 ) {
     companion object {
         /**
@@ -24,7 +24,7 @@ constructor(
             return GameState(
                 playerStartHand,
                 opponentHand,
-                getCanShowHands(playerStartHand, opponentHand).random()
+                getCanShowHands(playerStartHand, opponentHand).random(),
             )
         }
 
@@ -34,7 +34,7 @@ constructor(
         private fun handSetIsValidate(
             playerStartHand: Hand,
             opponentHand: Hand,
-            opponentNotUseHand: Hand
+            opponentNotUseHand: Hand,
         ): Boolean =
             opponentNotUseHand != opponentHand && (!playerStartHand.canWinTo(opponentNotUseHand))
 

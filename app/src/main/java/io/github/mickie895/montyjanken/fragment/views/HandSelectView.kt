@@ -1,19 +1,12 @@
 package io.github.mickie895.montyjanken.fragment.views
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.drawable.Drawable
-import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import io.github.mickie895.montyjanken.R
 import io.github.mickie895.montyjanken.databinding.ViewHandSelectBinding
 import io.github.mickie895.montyjanken.model.Hand
-import java.util.Dictionary
 
 interface OnHandSelectListener {
     fun handSelected(hand: Hand)
@@ -23,10 +16,12 @@ interface OnHandSelectListener {
  * 手を選ぶためのビュー
  */
 class HandSelectView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private lateinit var handViewDictionary: Map<Hand, View>
+    private val handViewDictionary: Map<Hand, View>
 
     init {
         // 手を選択するときのリスナの準備
@@ -46,7 +41,7 @@ class HandSelectView @JvmOverloads constructor(
         handViewDictionary = mapOf(
             Hand.ROCK to binding.selectRock,
             Hand.SCISSOR to binding.selectScissor,
-            Hand.PAPER to binding.selectPaper
+            Hand.PAPER to binding.selectPaper,
         )
     }
 
@@ -54,7 +49,7 @@ class HandSelectView @JvmOverloads constructor(
      * 利用不可能にする手を設定
      */
     fun setForbiddenHand(hand: Hand) {
-        handViewDictionary.entries.forEach{
+        handViewDictionary.entries.forEach {
             it.value.isClickable = (hand != it.key)
         }
     }

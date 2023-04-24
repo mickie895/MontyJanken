@@ -6,8 +6,8 @@ import io.github.mickie895.montyjanken.model.GameCycleRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class MainMenuViewModel @Inject constructor(val gameCycleRepository: GameCycleRepository): ViewModel() {
-    fun startGame(){
+class MainMenuViewModel @Inject constructor(private val gameCycleRepository: GameCycleRepository) : ViewModel() {
+    fun startGame() {
         gameCycleRepository.reset()
     }
 }

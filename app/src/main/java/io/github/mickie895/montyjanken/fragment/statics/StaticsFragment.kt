@@ -1,11 +1,11 @@
 package io.github.mickie895.montyjanken.fragment.statics
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import io.github.mickie895.montyjanken.R
 
 class StaticsFragment : Fragment() {
@@ -17,8 +17,9 @@ class StaticsFragment : Fragment() {
     private lateinit var viewModel: StaticsViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_statics, container, false)
     }
@@ -28,5 +29,4 @@ class StaticsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(StaticsViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
