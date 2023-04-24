@@ -10,14 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.mickie895.montyjanken.R
 import io.github.mickie895.montyjanken.databinding.FragmentMainMenuBinding
 
+@AndroidEntryPoint
 class MainMenuFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainMenuFragment()
-    }
 
     private val viewModel: MainMenuViewModel by viewModels()
 
@@ -27,6 +25,7 @@ class MainMenuFragment : Fragment() {
     ): View {
         val binding = FragmentMainMenuBinding.inflate(layoutInflater)
         binding.startMainButton.setOnClickListener{
+            viewModel.startGame()
             findNavController().navigate(R.id.action_mainMenuFragment_to_firstHandSelectFragment)
         }
         return binding.root
