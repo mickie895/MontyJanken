@@ -9,4 +9,8 @@ class GameCycleRepository {
     fun proceed(hand: Hand){
         gameCycle = gameCycle.getNextInstanceWith(hand)
     }
+
+    fun reset(){
+        gameCycle = gameCycle.reset()
+    }
 }

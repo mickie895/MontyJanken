@@ -11,4 +11,12 @@
     <string name="hand_rock">Rock</string>
     <string name="hand_scissor">Scissor</string>
     <string name="hand_paper">Paper</string>
+    <string name="result_win">You Win</string>
+    <string name="result_lose">You Lose</string>
+    <string name="game_summary">Your first hand is %1$s. And you %2$s.\nYou %3$s to %4$s,</string>
+    <string name="summary_change">changed</string>
+    <string name="summary_nochange">didn\'t change</string>
+    <string name="summary_win">won</string>
+    <string name="summary_lose">lost</string>
+    <string name="next_game">Next Game</string>
 </resources>

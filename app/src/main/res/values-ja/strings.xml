@@ -12,4 +12,12 @@
     <string name="hand_rock">グー</string>
     <string name="hand_scissor">チョキ</string>
     <string name="hand_paper">パー</string>
+    <string name="result_win">あなたの勝ちです</string>
+    <string name="result_lose">あなたの負けです</string>
+    <string name="game_summary">あなたは最初%1$sを選択し、その後%2$s。結果%4$sに%3$s。</string>
+    <string name="summary_change">手を変えました</string>
+    <string name="summary_nochange">手を変えませんでした</string>
+    <string name="summary_win">勝ちました</string>
+    <string name="summary_lose">負けました</string>
+    <string name="next_game">もう一度プレイ</string>
 </resources>

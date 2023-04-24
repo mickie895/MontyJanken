@@ -45,6 +45,8 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_resultShowFragment_to_mainMenuFragment"
-            app:destination="@id/mainMenuFragment" />
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
