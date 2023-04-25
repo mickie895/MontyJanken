@@ -19,4 +19,15 @@
     <string name="summary_win">won</string>
     <string name="summary_lose">lost</string>
     <string name="next_game">Next Game</string>
+    <string name="statics_title">Game Statics</string>
+    <string name="statics_count_title">Games</string>
+    <string name="statics_title_win_count">Wins</string>
+    <string name="statics_type_count">Player Choice</string>
+    <string name="statics_title_win_rate">Win Rate</string>
+    <string name="statics_type_all">All</string>
+    <string name="statics_type_change">Changed</string>
+    <string name="statics_type_not_change">Not Change</string>
+    <string name="clear_history">Clear history</string>
+    <string name="auto_match">Auto match</string>
+    <string name="rate_format" translatable="false">%1$d%%</string>
 </resources>

@@ -20,4 +20,14 @@
     <string name="summary_win">勝ちました</string>
     <string name="summary_lose">負けました</string>
     <string name="next_game">もう一度プレイ</string>
+    <string name="statics_title">統計</string>
+    <string name="statics_count_title">ゲーム数</string>
+    <string name="statics_title_win_count">勝利数</string>
+    <string name="statics_type_count">手の変更</string>
+    <string name="statics_title_win_rate">勝率</string>
+    <string name="statics_type_all">全ゲーム</string>
+    <string name="statics_type_change">あり</string>
+    <string name="statics_type_not_change">なし</string>
+    <string name="clear_history">履歴消去</string>
+    <string name="auto_match">データ作成</string>
 </resources>

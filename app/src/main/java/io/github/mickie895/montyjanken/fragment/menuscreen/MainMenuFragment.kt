@@ -26,6 +26,9 @@ class MainMenuFragment : Fragment() {
             viewModel.startGame()
             findNavController().navigate(R.id.action_mainMenuFragment_to_firstHandSelectFragment)
         }
+        binding.staticsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainMenuFragment_to_staticsFragment)
+        }
         return binding.root
     }
 }

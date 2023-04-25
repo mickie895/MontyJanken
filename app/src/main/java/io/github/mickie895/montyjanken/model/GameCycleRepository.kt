@@ -1,5 +1,7 @@
 package io.github.mickie895.montyjanken.model
 
+import io.github.mickie895.montyjanken.model.statics.GameSummary
+
 /**
  * DI用にゲームの状態を保管するリポジトリ
  */
@@ -13,4 +15,10 @@ class GameCycleRepository {
     fun reset() {
         gameCycle = gameCycle.reset()
     }
+
+    val tryGetSummary: GameSummary?
+        get() = when (val capturedCycle = gameCycle) {
+            is GameCycle.GameResult -> capturedCycle.summary()
+            else -> null
+        }
 }

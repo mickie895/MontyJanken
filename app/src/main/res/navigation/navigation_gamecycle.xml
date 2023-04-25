@@ -11,42 +11,53 @@
         tools:layout="@layout/fragment_main_menu" >
         <action
             android:id="@+id/action_mainMenuFragment_to_firstHandSelectFragment"
-            app:destination="@id/firstHandSelectFragment" />
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_staticsFragment"
+            app:destination="@id/staticsFragment" />
     </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/firstHandSelectFragment">
+        <fragment
+            android:id="@+id/resultShowFragment"
+            android:name="io.github.mickie895.montyjanken.fragment.gamecycle.ResultShowFragment"
+            android:label="fragment_result_show"
+            tools:layout="@layout/fragment_result_show">
+            <action
+                android:id="@+id/action_resultShowFragment_to_firstHandSelectFragment"
+                app:destination="@id/firstHandSelectFragment"
+                app:popUpTo="@id/mainMenuFragment"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_resultShowFragment_to_mainMenuFragment"
+                app:destination="@id/mainMenuFragment"
+                app:popUpTo="@id/mainMenuFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/firstHandSelectFragment"
+            android:name="io.github.mickie895.montyjanken.fragment.gamecycle.FirstHandSelectFragment"
+            android:label="fragment_first_hand_select"
+            tools:layout="@layout/fragment_first_hand_select">
+            <action
+                android:id="@+id/action_firstHandSelectFragment_to_showOpponentHandFragment"
+                app:destination="@id/showOpponentHandFragment"
+                app:popUpTo="@id/mainMenuFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/showOpponentHandFragment"
+            android:name="io.github.mickie895.montyjanken.fragment.gamecycle.ShowOpponentHandFragment"
+            android:label="fragment_show_opponent_hand"
+            tools:layout="@layout/fragment_show_opponent_hand">
+            <action
+                android:id="@+id/action_showOpponentHandFragment_to_resultShowFragment"
+                app:destination="@id/resultShowFragment"
+                app:popUpTo="@id/mainMenuFragment" />
+        </fragment>
+    </navigation>
     <fragment
-        android:id="@+id/firstHandSelectFragment"
-        android:name="io.github.mickie895.montyjanken.fragment.gamecycle.FirstHandSelectFragment"
-        android:label="fragment_first_hand_select"
-        tools:layout="@layout/fragment_first_hand_select" >
-        <action
-            android:id="@+id/action_firstHandSelectFragment_to_showOpponentHandFragment"
-            app:destination="@id/showOpponentHandFragment"
-            app:popUpTo="@id/mainMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/showOpponentHandFragment"
-        android:name="io.github.mickie895.montyjanken.fragment.gamecycle.ShowOpponentHandFragment"
-        android:label="fragment_show_opponent_hand"
-        tools:layout="@layout/fragment_show_opponent_hand" >
-        <action
-            android:id="@+id/action_showOpponentHandFragment_to_resultShowFragment"
-            app:destination="@id/resultShowFragment"
-            app:popUpTo="@id/mainMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/resultShowFragment"
-        android:name="io.github.mickie895.montyjanken.fragment.gamecycle.ResultShowFragment"
-        android:label="fragment_result_show"
-        tools:layout="@layout/fragment_result_show" >
-        <action
-            android:id="@+id/action_resultShowFragment_to_firstHandSelectFragment"
-            app:destination="@id/firstHandSelectFragment"
-            app:popUpTo="@id/mainMenuFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_resultShowFragment_to_mainMenuFragment"
-            app:destination="@id/mainMenuFragment"
-            app:popUpTo="@id/mainMenuFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+        android:id="@+id/staticsFragment"
+        android:name="io.github.mickie895.montyjanken.fragment.statics.StaticsFragment"
+        android:label="fragment_statics"
+        tools:layout="@layout/fragment_statics" />
 </navigation>
