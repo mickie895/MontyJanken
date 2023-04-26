@@ -6,32 +6,39 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.mickie895.montyjanken.R
 import io.github.mickie895.montyjanken.databinding.FragmentStaticsBinding
+import io.github.mickie895.montyjanken.model.statics.GameStatics
 
 @AndroidEntryPoint
 class StaticsFragment : Fragment() {
 
     private val viewModel: StaticsViewModel by viewModels()
 
+    private lateinit var binding: FragmentStaticsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val binding = FragmentStaticsBinding.inflate(inflater)
+        binding = FragmentStaticsBinding.inflate(inflater)
+        viewModel.statics.observe(this, staticsObserver)
         viewModel.prepareStatics()
-        val statics = viewModel.statics
-        binding.countAll.text = statics.allCount.gameCount.toString()
-        binding.countWin.text = statics.allCount.winCount.toString()
-        binding.rateWin.text = getString(R.string.rate_format, statics.allCount.winRate)
-        binding.countChanged.text = statics.handChangedCount.gameCount.toString()
-        binding.countWinChanged.text = statics.handChangedCount.winCount.toString()
-        binding.rateWinChanged.text = getString(R.string.rate_format, statics.handChangedCount.winRate)
-        binding.countNotChange.text = statics.handNotChangedCount.gameCount.toString()
-        binding.countWinNotChange.text = statics.handNotChangedCount.winCount.toString()
-        binding.winRateNotChange.text = getString(R.string.rate_format, statics.handNotChangedCount.winRate)
         return binding.root
+    }
+
+    private val staticsObserver = Observer<GameStatics> {
+        binding.countAll.text = it.allCount.gameCount.toString()
+        binding.countWin.text = it.allCount.winCount.toString()
+        binding.rateWin.text = getString(R.string.rate_format, it.allCount.winRate)
+        binding.countChanged.text = it.handChangedCount.gameCount.toString()
+        binding.countWinChanged.text = it.handChangedCount.winCount.toString()
+        binding.rateWinChanged.text = getString(R.string.rate_format, it.handChangedCount.winRate)
+        binding.countNotChange.text = it.handNotChangedCount.gameCount.toString()
+        binding.countWinNotChange.text = it.handNotChangedCount.winCount.toString()
+        binding.winRateNotChange.text = getString(R.string.rate_format, it.handNotChangedCount.winRate)
     }
 }

@@ -23,7 +23,10 @@ data class GameHistory(
     /**
      * 勝率（100分率）
      */
-    val winRate: Int = winCount * 100 / gameCount
+    val winRate: Int = when (gameCount) {
+        0 -> 0
+        else -> winCount * 100 / gameCount
+    }
 }
 
 /**
