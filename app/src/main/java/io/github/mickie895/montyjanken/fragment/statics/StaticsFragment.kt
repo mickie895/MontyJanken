@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.mickie895.montyjanken.R
 import io.github.mickie895.montyjanken.databinding.FragmentStaticsBinding
+import io.github.mickie895.montyjanken.fragment.statics.dialogs.ClearHistoryDialog
 import io.github.mickie895.montyjanken.fragment.statics.dialogs.CreateSampleConfirmDialog
 import io.github.mickie895.montyjanken.model.statics.GameStatics
 
@@ -28,16 +29,31 @@ class StaticsFragment : Fragment() {
     ): View {
         binding = FragmentStaticsBinding.inflate(inflater)
         binding.autoMatch.setOnClickListener(autoMatchClickListener)
+        binding.clearHistory.setOnClickListener(clearHistoryClickListener)
         viewModel.statics.observe(this, staticsObserver)
         viewModel.prepareStatics()
         return binding.root
     }
 
+    /**
+     * ゲーム結果自動生成ボタンを押したときの処理
+     */
     private val autoMatchClickListener = OnClickListener {
         val autoMatchConfirmDialog = CreateSampleConfirmDialog()
         autoMatchConfirmDialog.show(parentFragmentManager, null)
     }
 
+    /**
+     * 履歴クリアボタンを押したときの処理
+     */
+    private val clearHistoryClickListener = OnClickListener {
+        val clearHistoryConfirmDialog = ClearHistoryDialog()
+        clearHistoryConfirmDialog.show(parentFragmentManager, null)
+    }
+
+    /**
+     * 統計データを受け取ったときに行う処理
+     */
     private val staticsObserver = Observer<GameStatics> {
         binding.countAll.text = it.allCount.gameCount.toString()
         binding.countWin.text = it.allCount.winCount.toString()

@@ -16,4 +16,8 @@ class GameSummaryRepository @Inject constructor(database: AppDatabase) {
     fun getStatics(): GameStatics {
         return dao.createGameStatics()
     }
+
+    fun clearHistory(){
+        dao.clearHistory()
+    }
 }

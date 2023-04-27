@@ -34,4 +34,6 @@
     <string name="create_sample_confirm">I will add 1000 games for sample. This may take time. Can I start now?</string>
     <string name="create">Create</string>
     <string name="cansel">Cansel</string>
+    <string name="clear_history_confirm">All history will be REMOVED. Do you want to clear?</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -34,4 +34,6 @@
     <string name="create_sample_confirm">1000ゲーム分の履歴を作成するため、時間がかかる可能性があります。よろしいですか？</string>
     <string name="create">作成</string>
     <string name="cansel">キャンセル</string>
+    <string name="clear_history_confirm">全履歴を削除します。よろしいですか？</string>
+    <string name="delete">削除</string>
 </resources>

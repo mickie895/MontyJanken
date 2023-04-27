@@ -1,7 +1,7 @@
 package io.github.mickie895.montyjanken.fragment.statics.dialogs
 
 import android.app.Dialog
-import android.content.DialogInterface.OnClickListener
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -13,23 +13,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CreateSampleConfirmDialog : DialogFragment() {
-    private val viewModel: CreateSampleConfirmDialogViewModel by viewModels()
-
-    private val sampleCount = 1000 / 2
+class ClearHistoryDialog : DialogFragment() {
+    private val viewModel: ClearHistoryDialogViewModel by viewModels()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
-            .setMessage(R.string.create_sample_confirm)
-            .setPositiveButton(R.string.create, onCreateSampleNeeded)
+            .setMessage(R.string.clear_history_confirm)
+            .setPositiveButton(R.string.delete, onClearNeeded)
             .setNegativeButton(R.string.cansel, emptyEventListener)
 
         return builder.create()
     }
 
-    private val onCreateSampleNeeded = OnClickListener { _, _ ->
+    private val onClearNeeded = DialogInterface.OnClickListener { _, _ ->
         lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.createSample(sampleCount)
+            viewModel.clearHistory()
         }
     }
 }
