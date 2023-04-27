@@ -3,6 +3,7 @@ package io.github.mickie895.montyjanken.fragment.statics
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.mickie895.montyjanken.R
 import io.github.mickie895.montyjanken.databinding.FragmentStaticsBinding
+import io.github.mickie895.montyjanken.fragment.statics.dialogs.CreateSampleConfirmDialog
 import io.github.mickie895.montyjanken.model.statics.GameStatics
 
 @AndroidEntryPoint
@@ -25,9 +27,15 @@ class StaticsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentStaticsBinding.inflate(inflater)
+        binding.autoMatch.setOnClickListener(autoMatchClickListener)
         viewModel.statics.observe(this, staticsObserver)
         viewModel.prepareStatics()
         return binding.root
+    }
+
+    private val autoMatchClickListener = OnClickListener {
+        val autoMatchConfirmDialog = CreateSampleConfirmDialog()
+        autoMatchConfirmDialog.show(parentFragmentManager, null)
     }
 
     private val staticsObserver = Observer<GameStatics> {

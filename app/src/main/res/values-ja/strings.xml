@@ -30,4 +30,8 @@
     <string name="statics_type_not_change">なし</string>
     <string name="clear_history">履歴消去</string>
     <string name="auto_match">データ作成</string>
+    <string name="back_to_title">タイトルへ戻る</string>
+    <string name="create_sample_confirm">1000ゲーム分の履歴を作成するため、時間がかかる可能性があります。よろしいですか？</string>
+    <string name="create">作成</string>
+    <string name="cansel">キャンセル</string>
 </resources>

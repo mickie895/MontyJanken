@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.mickie895.montyjanken.model.GameCycleRepository
+import io.github.mickie895.montyjanken.model.StaticsChangedNotify
 import javax.inject.Singleton
 
 @Module
@@ -12,6 +13,11 @@ import javax.inject.Singleton
 class GameCycleEntryPoints {
 
     // 今のところ実装が変わることはないためProvidesを利用する。インタフェースを使い場合はBindsを使う
+    @Provides
+    @Singleton
+    fun provideStaticsChangeNotify(): StaticsChangedNotify {
+        return StaticsChangedNotify()
+    }
 
     @Provides
     @Singleton
